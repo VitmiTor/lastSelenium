@@ -1,6 +1,6 @@
 package base;
 
-import data.DataProvider;
+import data.DataProviders;
 import listeners.SuiteListeners;
 import listeners.TestListeners;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public abstract class BaseTest extends DriverManager {
     protected final String regression = "regression";
 
     protected final String browsername = "Chrome";
-    protected final DataProvider dataProvider = new DataProvider();
+    protected final DataProviders dataProvider = new DataProviders();
     protected CommonFlows commonFlows;
 
     @BeforeMethod(alwaysRun = true, description = "Master precondition")
@@ -33,7 +33,6 @@ public abstract class BaseTest extends DriverManager {
         driver = driverManager.createDriver();
         initPages(driver);
         commonFlows = new CommonFlows(driver);
-        commonFlows.goHomePage();
     }
 
     protected void setDriver(ITestResult result) {

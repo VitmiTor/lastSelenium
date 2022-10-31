@@ -90,5 +90,4 @@ public class DriverManager {
     public static byte[] getAllureScreenShot() {
         return ((TakesScreenshot) staticdriver).getScreenshotAs(OutputType.BYTES);
     }
-
 }

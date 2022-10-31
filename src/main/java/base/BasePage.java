@@ -1,8 +1,10 @@
 package base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 import utilities.Logs;
+import webElements.list.$$;
 import webElements.single.$;
 
 public abstract class BasePage {
@@ -10,11 +12,11 @@ public abstract class BasePage {
     protected final WebDriver driver;
     private int timeOut;
     protected SoftAssert softAssert;
+    private final int defaultTimaOut = 5;
 
-   
-    public BasePage(WebDriver driver, int timeOut) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.timeOut = timeOut;
+        this.timeOut = defaultTimaOut;
         softAssert = new SoftAssert();
     }
 
@@ -25,6 +27,14 @@ public abstract class BasePage {
 
         message = String.format("%s loaded successfully ", pageName);
         logs.info(message);
+    }
+
+    protected $ $(By locator) {
+        return new $(locator, driver);
+    }
+
+    protected $$ $$(By locator) {
+        return new $$(locator, driver);
     }
 
     public abstract void waitPageToLoad();
