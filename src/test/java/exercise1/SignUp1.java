@@ -1,6 +1,6 @@
 package exercise1;
 
-import PageObjects.Pages.HeaderPage;
+import PageObjects.bars.HeaderPage;
 import PageObjects.login.SignUpPage;
 import PageObjects.login.UserPage;
 import base.BaseTest;

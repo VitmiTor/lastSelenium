@@ -1,4 +1,4 @@
-package PageObjects.Pages;
+package PageObjects.bars;
 
 import base.BasePage;
 import org.openqa.selenium.By;

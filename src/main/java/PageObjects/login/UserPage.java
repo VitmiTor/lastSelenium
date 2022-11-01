@@ -8,9 +8,10 @@ import webElements.single.$;
 
 public class UserPage extends BasePage {
 
-    private final $$ usernameText = $$(By.className("nav-link"));
+    private final $$ navigationOption = $$(By.className("nav-link"));
 
     private final $ sideBarInput = $(By.className("sidebar"));
+
 
     public UserPage(WebDriver driver) {
         super(driver);
@@ -27,7 +28,15 @@ public class UserPage extends BasePage {
     }
 
     public String getUserText() {
-        return usernameText.getElementIndex(3).getText();
+        return navigationOption.getElementIndex(3).getText();
+    }
+
+    public void goSetting() {
+        navigationOption.getElementIndex(2).click();
+    }
+
+    public void goNewPost() {
+        navigationOption.getElementIndex(1).click();
     }
 
 }

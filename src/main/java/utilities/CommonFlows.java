@@ -1,6 +1,8 @@
 package utilities;
 
-import PageObjects.Pages.HeaderPage;
+import PageObjects.bars.HeaderPage;
+import PageObjects.login.SignInPage;
+import PageObjects.login.UserPage;
 import data.DataProviders;
 import org.openqa.selenium.WebDriver;
 
@@ -32,6 +34,25 @@ public class CommonFlows {
         driver.get(mainUrl);
         headerPage.waitPageToLoad();
         headerPage.clickHomeInput();
+    }
+
+    public void SignIn() {
+        var signIn = new SignInPage(driver);
+        var signInfor = dataProviders.getUserInfoHardcoded();
+        signIn.fillingSingInform(signInfor.getEmail(), signInfor.getPassword());
+    }
+
+    public void goToSettings() {
+        var userPage = new UserPage(driver);
+        userPage.goSetting();
+    }
+
+    public void newPost() {
+        goToSignIn();
+        SignIn();
+        var userPage = new UserPage(driver);
+        userPage.waitPageToLoad();
+        userPage.goNewPost();
     }
 
 }
