@@ -10,6 +10,7 @@ public class DataProviders {
     private final MapParser mapParser = new MapParser();
     private final ExcelReader excelReader = new ExcelReader();
     public final static String USER_INFORMATION_DP = "user information data provider";
+    public final static String COMMENTARIES = "commentaries";
 
     @DataProvider(name = USER_INFORMATION_DP)
     public Object[][] userInformationDataProvider() {
@@ -31,4 +32,18 @@ public class DataProviders {
         logs.debug("getting Key userInfo Hardcoded");
         return mapParser.getuserInfoMap().get("valid");
     }
+
+    @DataProvider(name = COMMENTARIES)
+    public Object[][] commentariesPost() {
+        var comentarios = excelReader.getComentarios();
+        var listsize = comentarios.size();
+        var object = new Object[listsize][];
+        for (var i = 0; i < listsize; i++) {
+            object[i] = new Object[]{
+                    comentarios.get(i).getComentarios()
+            };
+        }
+        return object;
+    }
+
 }

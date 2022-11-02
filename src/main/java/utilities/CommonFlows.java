@@ -39,6 +39,7 @@ public class CommonFlows {
     public void SignIn() {
         var signIn = new SignInPage(driver);
         var signInfor = dataProviders.getUserInfoHardcoded();
+        signIn.waitPageToLoad();
         signIn.fillingSingInform(signInfor.getEmail(), signInfor.getPassword());
     }
 

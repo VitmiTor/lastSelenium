@@ -43,6 +43,13 @@ public class $ implements IActions, IVerifications, IWaits, IAttributes, ISelect
     }
 
     @Override
+    public $ clear() {
+        findElement();
+        webElement.clear();
+        return this;
+    }
+
+    @Override
     public boolean isDisplayed() {
         findElement();
         return webElement.isDisplayed();

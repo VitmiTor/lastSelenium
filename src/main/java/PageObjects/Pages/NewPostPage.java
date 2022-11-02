@@ -13,7 +13,8 @@ public class NewPostPage extends BasePage {
     private final $ descriptionInput = $(By.cssSelector("textarea[class='form-control']"));
     private final $$ textBox = $$(By.cssSelector("input[type='text']"));
 
-    private String a = "";
+    private String a = "old";
+    private String b = "new";
 
     public NewPostPage(WebDriver driver) {
         super(driver);
@@ -40,6 +41,30 @@ public class NewPostPage extends BasePage {
         descriptionInput.sendKeys(faker.team().sport());
         textBox.getElementIndex(2).sendKeys(faker.aquaTeenHungerForce().character());
         buttonInput.click();
+    }
+
+    public void editingOldArticle() {
+        waitPageToLoad();
+        var faker = new Faker();
+        b = faker.dragonBall().character();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException interruptedException) {
+            interruptedException.getLocalizedMessage();
+        }
+        textBox.getElementIndex(0).clear().sendKeys(b);
+
+        textBox.getElementIndex(1).clear().sendKeys(faker.backToTheFuture().quote());
+
+        descriptionInput.clear().sendKeys(faker.team().sport());
+
+        textBox.getElementIndex(2).clear().sendKeys(faker.aquaTeenHungerForce().character());
+
+        buttonInput.click();
+    }
+
+    public String editedArticleTtitle() {
+        return b;
     }
 
     public String articleName() {

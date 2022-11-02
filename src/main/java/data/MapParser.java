@@ -1,5 +1,6 @@
 package data;
 
+import model.Comentarios;
 import model.ErrorMessage;
 import model.UserInfo;
 import utilities.Logs;
@@ -26,6 +27,16 @@ public class MapParser {
         var userInfoList = excelReader.getUserInfo();
         for (var userInfo : userInfoList) {
             map.put(userInfo.getKey(), userInfo);
+        }
+        return map;
+    }
+
+    public HashMap<String, Comentarios> getCommentaries() {
+        logs.debug("creating commentaries MAP");
+        var map = new HashMap<String, Comentarios>();
+        var commentaryList = excelReader.getComentarios();
+        for (var commentary : commentaryList) {
+            map.put(commentary.getKey(), commentary);
         }
         return map;
     }

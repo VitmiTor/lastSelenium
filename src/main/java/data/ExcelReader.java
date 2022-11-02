@@ -1,6 +1,7 @@
 package data;
 
 import com.poiji.bind.Poiji;
+import model.Comentarios;
 import model.ErrorMessage;
 import model.UserInfo;
 import utilities.Logs;
@@ -20,5 +21,10 @@ public class ExcelReader {
     public List<UserInfo> getUserInfo() {
         logs.debug("Reading Excel userInfo Hardcoded");
         return Poiji.fromExcel(new File(excelPath), UserInfo.class);
+    }
+
+    public List<Comentarios> getComentarios() {
+        logs.debug("Reading Excel commentaries");
+        return Poiji.fromExcel(new File(excelPath), Comentarios.class);
     }
 }

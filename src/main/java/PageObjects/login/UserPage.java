@@ -27,6 +27,11 @@ public class UserPage extends BasePage {
 
     }
 
+    public void clickOnUSer() {
+        waitPageToLoad();
+        navigationOption.getElementIndex(3).click();
+    }
+
     public String getUserText() {
         return navigationOption.getElementIndex(3).getText();
     }

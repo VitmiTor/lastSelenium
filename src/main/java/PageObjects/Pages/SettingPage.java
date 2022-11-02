@@ -29,6 +29,7 @@ public class SettingPage extends BasePage {
 
     @Override
     public void verifyPage() {
+        waitPageToLoad();
         softAssert.assertTrue(title.isDisplayed());
         softAssert.assertTrue(buttonLogOut.isDisplayed());
         softAssert.assertAll();

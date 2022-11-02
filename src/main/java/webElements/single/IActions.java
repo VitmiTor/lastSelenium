@@ -4,4 +4,6 @@ public interface IActions {
     $ click();
 
     $ sendKeys(String text);
+
+    $ clear();
 }

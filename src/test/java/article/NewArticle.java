@@ -30,6 +30,7 @@ public class NewArticle extends BaseTest {
         Assert.assertEquals(newPostPage.articleName(), postedPage.titlePost());
     }
 
+    
     @Override
     protected void initPages(WebDriver driver) {
         newPostPage = new NewPostPage(driver);
