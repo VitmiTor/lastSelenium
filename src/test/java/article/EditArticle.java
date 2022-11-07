@@ -17,13 +17,13 @@ public class EditArticle extends BaseTest {
     private ProfileUser profileUser;
     private NewPostPage newPostPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         commonFlows.SignIn();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void editingArticle() {
         userPage.clickOnUSer();
         profileUser.firstArticle();

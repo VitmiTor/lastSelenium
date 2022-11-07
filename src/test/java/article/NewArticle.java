@@ -13,17 +13,17 @@ public class NewArticle extends BaseTest {
     private NewPostPage newPostPage;
     private PostedPage postedPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.newPost();
     }
 
-    @Test
+    @Test(groups = regression)
     public void verify() {
         newPostPage.verifyPage();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void createArticle() {
         newPostPage.createArticle();
         postedPage.waitPageToLoad();

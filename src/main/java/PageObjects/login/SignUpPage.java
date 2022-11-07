@@ -18,12 +18,13 @@ public class SignUpPage extends BasePage {
         super(driver);
     }
 
-
+    @Step("Waiting SignUp Page to load")
     @Override
     public void waitPageToLoad() {
         waitPage(linkText, this.getClass().getSimpleName());
     }
 
+    @Step("Verifying SignUp Page")
     @Override
     public void verifyPage() {
         softAssert.assertTrue(linkText.isDisplayed());
@@ -34,6 +35,7 @@ public class SignUpPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Fiilling SignUp form")
     public void fillingForm(String username, String email, String password) {
         logs.info("Filling username " + username);
         userNameInput.sendKeys(username);

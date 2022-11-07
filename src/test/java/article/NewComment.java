@@ -19,14 +19,14 @@ public class NewComment extends BaseTest {
     private ProfileUser profileUser;
     private PostedPage postedPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         commonFlows.SignIn();
 
     }
 
-    @Test(dataProvider = COMMENTARIES, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = COMMENTARIES, dataProviderClass = DataProviders.class, groups = smoke)
     public void createComment(String comentarios) {
         userPage.clickOnUSer();
         profileUser.firstArticle();

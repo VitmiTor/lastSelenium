@@ -15,17 +15,17 @@ public class SignIn1 extends BaseTest {
     private UserPage userPage;
     private SignUpPage signUpPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
     }
 
-    @Test
+    @Test(groups = regression)
     public void verifySignIn() {
         signInPage.verifyPage();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void fillingSignin() {
         var userInfor = dataProvider.getUserInfoHardcoded();
         signInPage.fillingSingInform(userInfor.getEmail(), userInfor.getPassword());

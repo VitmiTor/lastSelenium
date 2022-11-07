@@ -16,7 +16,7 @@ public class DeleteArticle extends BaseTest {
     private ProfileUser profileUser;
     private PostedPage postedPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         commonFlows.SignIn();
@@ -24,7 +24,7 @@ public class DeleteArticle extends BaseTest {
         profileUser.firstArticle();
     }
 
-    @Test
+    @Test(groups = regression)
     public void deleteArticle() {
         var a = postedPage.titlePost();
         postedPage.deleteArticleButton();

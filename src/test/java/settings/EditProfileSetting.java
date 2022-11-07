@@ -14,14 +14,14 @@ public class EditProfileSetting extends BaseTest {
     private ProfileUser profileUser;
     private SettingPage settings;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         commonFlows.SignIn();
         userPage.clickOnUSer();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void editProfile() {
         profileUser.edittingProfile();
         settings.verifyPage();

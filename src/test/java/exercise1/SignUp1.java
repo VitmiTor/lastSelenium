@@ -14,12 +14,12 @@ public class SignUp1 extends BaseTest {
     private SignUpPage signUpPage;
     private UserPage userPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignUp();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void normalSignIn() {
         var userInfor = dataProvider.getUserInfoHardcoded();
         signUpPage.waitPageToLoad();

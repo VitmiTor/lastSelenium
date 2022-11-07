@@ -15,7 +15,7 @@ public class createBio extends BaseTest {
     private SettingPage settingPage;
     private UserPage userPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         signInPage.waitPageToLoad();
@@ -24,12 +24,12 @@ public class createBio extends BaseTest {
         commonFlows.goToSettings();
     }
 
-    @Test
+    @Test(groups = regression)
     public void verifySet() {
         settingPage.verifyPage();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void createBio() {
         settingPage.waitPageToLoad();
         settingPage.fillingBio();

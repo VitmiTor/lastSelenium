@@ -12,7 +12,7 @@ public class Settings extends BaseTest {
     private SettingPage settingPage;
     private UserPage userPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         commonFlows.goToSignIn();
         commonFlows.SignIn();
@@ -20,13 +20,13 @@ public class Settings extends BaseTest {
         commonFlows.goToSettings();
     }
 
-    @Test
+    @Test(groups = smoke)
     public void verifySettings() {
         settingPage.verifyPage();
     }
 
 
-    @Test
+    @Test(groups = regression)
     public void settings() {
         settingPage.LogOut();
     }

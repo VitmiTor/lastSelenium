@@ -2,8 +2,8 @@ package PageObjects.Pages;
 
 import base.BasePage;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import webElements.list.$$;
 import webElements.single.$;
@@ -22,11 +22,13 @@ public class SettingPage extends BasePage {
         super(driver);
     }
 
+    @Step("Waiting Setting Page to load")
     @Override
     public void waitPageToLoad() {
         waitPage(title, this.getClass().getSimpleName());
     }
 
+    @Step("Verifying Setting Page")
     @Override
     public void verifyPage() {
         waitPageToLoad();
@@ -35,23 +37,29 @@ public class SettingPage extends BasePage {
         softAssert.assertAll();
     }
 
+    @Step("Clicking on LogOut")
     public void LogOut() {
+        logs.info("Clicking on LogOut");
         buttonLogOut.click();
     }
 
+    @Step("Refilling Bio information")
     public void fillingBio() {
         var faker = new Faker();
-        newname = faker.name().fullName();
-        textBox.getElementIndex(1).sendKeys(Keys.CONTROL + "a");
-        textBox.getElementIndex(1).sendKeys(newname);
-        textBio.sendKeys(faker.aquaTeenHungerForce().character());
-        buttonUpdate.click();
 
+        newname = faker.name().fullName();
+        logs.info("writing name");
+        textBox.getElementIndex(1).clear().sendKeys(newname);
+
+        logs.info("writing biography of the user");
+        textBio.sendKeys(faker.aquaTeenHungerForce().character());
+
+        logs.info("Clicking button save");
+        buttonUpdate.click();
     }
 
+    @Step("Getting New Name of thew User")
     public String getNewname() {
         return newname;
     }
-
-
 }
